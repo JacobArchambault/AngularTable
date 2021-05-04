@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<HTML lang="en-US">
+<title>Angular JS Repetition</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js">
+</script>
+</head>
+
+<body ng-app="myApp">
+    <main ng-controller="courseCtrl">
+        <h1>AngularJS Example</h1>
+        <h2> Some Programming Courses</h2>
+        <ul>
+            <li ng-repeat="course in courses">
+                {{ course }}
+            </li>
+        </ul>
+    </main>
+    <script>
+        angular.module('myApp', []).controller('courseCtrl', function ($scope) {
+            $scope.courses = [           // array literal of course names
+                "CIT 140 JavaScript I",
+                "CIT 144 Python I",
+                "CIT 141 PHP I",
+                "CIT 149 Java I"
+            ];
+        }); // end controller
+    </script>
+</body>
+
+</HTML>
