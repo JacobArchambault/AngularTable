@@ -1,28 +1,30 @@
 <!DOCTYPE HTML>
 <HTML lang="en-US">
-<title>Angular JS Repetition</title>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js">
-</script>
+
+<head>
+    <title>Angular JS Repetition</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js">
+    </script>
 </head>
 
-<body ng-app="myApp">
-    <main ng-controller="courseCtrl">
-        <h1>AngularJS Example</h1>
-        <h2> Some Programming Courses</h2>
-        <ul>
-            <li ng-repeat="course in courses">
-                {{ course }}
-            </li>
-        </ul>
+<body ng-app="tableApp">
+    <main ng-controller="tableCtrl">
+        <h1>Contact List</h1>
+        <table cellspacing="12">
+            <tr ng-repeat="contact in contacts">
+                <td ng-bind="contact.name"></td>
+                <td ng-bind="contact.phone"></td>
+            </tr>
+        </table>
     </main>
     <script>
-        angular.module('myApp', []).controller('courseCtrl', function ($scope) {
-            $scope.courses = [           // array literal of course names
-                "CIT 140 JavaScript I",
-                "CIT 144 Python I",
-                "CIT 141 PHP I",
-                "CIT 149 Java I"
-            ];
+        angular.module('tableApp', []).controller('tableCtrl', function ($scope) {
+            $scope.contacts = [               // array of object literals
+                { name: "han solo", phone: "555-1111" },
+                { name: "jar-jar binks", phone: "555-2222" },
+                { name: "princess leah", phone: "555-3333" },
+                { name: "luke skywalker", phone: "555-4444" }
+            ]
         }); // end controller
     </script>
 </body>
