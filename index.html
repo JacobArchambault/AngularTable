@@ -1,32 +1,31 @@
-<!DOCTYPE HTML>
-<HTML lang="en-US">
+<HTML>
 
 <head>
-    <title>Angular JS Repetition</title>
+    <title>Tables and AngularJS </title>
+    <link rel="stylesheet" href="style.css">
+    </link>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js">
     </script>
 </head>
 
-<body ng-app="tableApp">
-    <main ng-controller="tableCtrl">
-        <h1>Contact List</h1>
-        <table cellspacing="12">
-            <tr ng-repeat="contact in contacts">
-                <td ng-bind="contact.name"></td>
-                <td ng-bind="contact.phone"></td>
+<body ng-app="mainApp">
+    <main ng-controller="studentCtrl">
+        <h1>AngularJS Example: modules and ng-repeat</h1>
+        <p>Name: {{ student.firstName + " " + student.lastName}}</p>
+        <p>Semester: {{student.semester}}</p>
+        <table>
+            <caption>Subjects</caption>
+            <tr>
+                <th>Course Name</th>
+                <th>Final Grade</th>
+            </tr>
+            <tr ng-repeat="subject in subjects">
+                <td>{{ subject.crs_name }}</td>
+                <td>{{ subject.grade }}</td>
             </tr>
         </table>
     </main>
-    <script>
-        angular.module('tableApp', []).controller('tableCtrl', function ($scope) {
-            $scope.contacts = [               // array of object literals
-                { name: "han solo", phone: "555-1111" },
-                { name: "jar-jar binks", phone: "555-2222" },
-                { name: "princess leah", phone: "555-3333" },
-                { name: "luke skywalker", phone: "555-4444" }
-            ]
-        }); // end controller
-    </script>
+    <script src="repeat0.js"></script>
 </body>
 
-</HTML>
+</html>
